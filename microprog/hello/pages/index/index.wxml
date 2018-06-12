@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <!--
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  -->
+
+  <view class="newBattle">
+    <text class="number">吸血鬼：</text>
+    <input type="number" placeholder="人数" name="badManNumb" bindinput='badManNumbInput' />
+    <input type="text" placeholder="词语"  name="badManWords" bindinput='badManWordsInput' />
+  </view>
+
+  <view class="newBattle">
+    <text class="number">平   民：</text>
+    
+    <input type="number" placeholder="人数" name="goodManNumb" bindinput='goodManNumbInput'  />
+    <input type="text" placeholder="词语"   name="goodManWords" bindinput='goodManWordsInput' />
+  </view>
+
+  <button bindtap="startNewBattle"> 新的一局 </button>
+</view>
